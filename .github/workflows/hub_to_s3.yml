@@ -20,6 +20,10 @@ jobs:
         aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
         aws-region: us-east-1
 
-    - name: Sync repository to S3
+    - name: Sync logs to S3
       run: |
-        aws s3 sync . s3://lowprice-dbt-test --delete
+        aws s3 sync logs s3://lowprice-dbt-test --delete
+    
+    - name: Sync lowprice to S3
+      run: |
+        aws s3 sync lowprice s3://lowprice-dbt-test --delete
