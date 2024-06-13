@@ -31,7 +31,4 @@ clean-targets:         # directories to be removed by `dbt clean`
 # files using the `{{ config(...) }}` macro.
 models:
   lowprice:
-    coupang:
-      +schema: jheon735
-      +database: dev
-      +materialized: table
+    +materialized: table

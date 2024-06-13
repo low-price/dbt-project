@@ -11,7 +11,7 @@ models:
           - check_price_not_negative
       - name: id
         description: "The ID of the product"
-        tests:
+        data_tests:
           - not_null
       - name: datetime
         description: "The datetime of the price record"

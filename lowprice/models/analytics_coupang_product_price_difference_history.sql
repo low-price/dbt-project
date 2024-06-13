@@ -1,6 +1,6 @@
 WITH base AS (
     SELECT *,
-        LAG(price) OVER (PARTITION BY id ORDER BY date) AS prev_price
+        LAG(price) OVER (PARTITION BY id ORDER BY datetime) AS prev_price
     FROM coupang_product_price_history
 ),
 
