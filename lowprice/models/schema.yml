@@ -1,0 +1,20 @@
+version: 2
+
+models:
+  - name: coupang_product_price_history
+    description: "Product price history for Coupang"
+    columns:
+      - name: price
+        description: "The price of the product"
+        data_tests:
+          - not_null
+          - check_price_not_negative
+      - name: id
+        description: "The ID of the product"
+        data_tests:
+          - not_null
+      - name: datetime
+        description: "The datetime of the price record"
+        data_tests:
+          - not_null
+          - unique_combination
