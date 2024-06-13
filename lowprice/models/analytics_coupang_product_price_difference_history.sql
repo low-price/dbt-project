@@ -8,7 +8,7 @@ calc AS (
     SELECT *,
         CASE
             WHEN prev_price IS NULL THEN NULL
-            ELSE (price - prev_price) / prev_price
+            ELSE (CAST(price AS FLOAT) - prev_price) / prev_price
         END AS price_change_rate
     FROM base
 )
