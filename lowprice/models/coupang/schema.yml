@@ -6,7 +6,7 @@ models:
     columns:
       - name: price
         description: "The price of the product"
-        tests:
+        data_tests:
           - not_null
           - check_price_not_negative
       - name: id
@@ -15,6 +15,6 @@ models:
           - not_null
       - name: datetime
         description: "The datetime of the price record"
-        tests:
+        data_tests:
           - not_null
           - unique_combination

@@ -1,7 +1,7 @@
 WITH base AS (
     SELECT *,
         LAG(price) OVER (PARTITION BY id ORDER BY date) AS prev_price
-    FROM {{ ref('coupang_product_price_history') }}
+    FROM coupang_product_price_history
 ),
 
 calc AS (
