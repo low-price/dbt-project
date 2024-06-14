@@ -7,4 +7,6 @@ WITH base AS (
     GROUP BY id
 )
 
-SELECT * FROM base
+SELECT base.*, coupang_product_info.product_name
+FROM base
+JOIN coupang_product_info ON base.id = coupang_product_info.id

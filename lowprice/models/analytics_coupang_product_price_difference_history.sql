@@ -8,9 +8,11 @@ calc AS (
     SELECT *,
         CASE
             WHEN prev_price IS NULL THEN NULL
-            ELSE (CAST(price AS FLOAT) - prev_price) / prev_price
+            ELSE ROUND((CAST(price AS FLOAT) - prev_price) / prev_price, 3)
         END AS price_change_rate
     FROM base
 )
 
-SELECT * FROM calc
+SELECT calc.*, coupang_product_info.product_name
+FROM calc
+JOIN coupang_product_info ON calc.id = coupang_product_info.id
