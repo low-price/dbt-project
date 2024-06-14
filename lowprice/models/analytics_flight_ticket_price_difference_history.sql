@@ -5,10 +5,10 @@ WITH base AS (
            fti.arrival_airport,
            fti.arrival_date,
            ftph.price,
-        LAG(price) OVER (PARTITION BY id ORDER BY ts) AS prev_price
+           TO_CHAR(ftph.ts, 'YYYY-MM-DD') AS ts,
+           LAG(price) OVER (PARTITION BY id ORDER BY ts) AS prev_price
     FROM flight_ticket_price_history ftph
-    JOIN flight_ticket_info fti
-        ON ftph.id = fti.id
+    JOIN flight_ticket_info fti ON ftph.id = fti.id
 ),
 
 calc AS (
